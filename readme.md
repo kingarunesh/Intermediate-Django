@@ -16,3 +16,4 @@
 14. after changing in models.py again run 11 and 12 commands
 15. `python manage.py showmigrations`
 16. `python manage.py sqlmigrate app_name file-like(0001)`
+17. `python manage.py createsuperuser`

@@ -10,3 +10,7 @@ class Student(models.Model):
     email = models.EmailField(max_length=100)
     marks = models.CharField(max_length=100)
     section = models.CharField(max_length=10, default="A")
+    
+    def __str__(self):
+        # return self.name
+        return str(self.student_id)

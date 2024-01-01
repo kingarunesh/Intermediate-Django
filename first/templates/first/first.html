@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>First App</title>
+    </head>
+    <body>
+        {% comment %}
+        <h2>{{ students }}</h2>
+        {% endcomment %}
+
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>STUDENT ID</th>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>MARKS</th>
+                <th>SECTION</th>
+            </thead>
+
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.id }}</td>
+                    <td>{{ student.student_id }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>{{ student.marks }}</td>
+                    <td>{{ student.section }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

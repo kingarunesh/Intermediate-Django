@@ -4,12 +4,136 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>First App</title>
+
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+
+            .helptext {
+                color: red;
+                font-weight: bold;
+            }
+
+            .message {
+                background-color: yellow;
+            }
+        </style>
     </head>
     <body>
+        <!-- SECTION :      first forms      -->
+
         {% comment %}
-        <h2>{{ students }}</h2>
+        <form method="get">
+            {% endcomment %} {% comment %} {{ first_form }} {% endcomment %}
+            <!---->
+            {% comment %} {{ first_form.name }} {% endcomment %}
+            <!---->
+            {% comment %} {{ first_form.email }} {% endcomment %}
+            <!---->
+
+            {% comment %} <input type="submit" value="Submit" /> {% endcomment %} {% comment %}
+        </form>
+        {% endcomment %} {% comment %}
+        <form method="get">{{ first_form.as_p }}</form>
+        <form method="get">{{ first_form.as_ul }}</form>
         {% endcomment %}
 
+        <!-- SECTION :      second form     -->
+
+        {% comment %}
+        <form action="" method="get">
+            {% endcomment %} {% comment %} {{ second_form }} {% endcomment %}
+
+            <!---->
+
+            {% comment %} {{ second_form.name.id_for_label }} {% endcomment %} {% comment %}
+            <div>
+                <label for="{{ second_form.name.id_for_label }}">Name : </label>
+                {{ second_form.name }}
+            </div>
+            {% endcomment %}
+
+            <!---->
+            {% comment %}
+            <div>
+                {{ second_form.name.label_tag }}
+
+                <!---->
+
+                {{ second_form.name }}
+            </div>
+            {% endcomment %}
+
+            <!---->
+
+            {% comment %}
+            <div>
+                {{ second_form.name.label }}
+                <br />
+                {{ second_form.name.value }}
+                <br />
+                {{ second_form.name.html_name }}
+                <br />
+                {{ second_form.name.help_text }}
+                <br />
+                {{ second_form.name.field.required }}
+            </div>
+
+            <!---->
+
+            <br />
+            <input type="submit" value="Submit" />
+        </form>
+        {% endcomment %}
+
+        <!-- SECTION :      third form - form loop      -->
+
+        {% comment %}
+        <form action="" method="get">
+            {% endcomment %}
+            <!---->
+
+            {% comment %} {% for field in third_form %} {% endcomment %}
+
+            <!---->
+
+            {% comment %} {% for field in third_form.visible_fields %} {% endcomment %}
+
+            <!---->
+
+            {% comment %} {% for field in third_form.hidden_fields %} {% endcomment %}
+
+            <!---->
+
+            {% comment %} {{field.label_tag}} {% endcomment %}
+
+            <!---->
+
+            {% comment %} {{ field }}
+
+            <!---->
+            <br />
+            {% endfor %}
+
+            <input type="submit" value="Submit" />
+        </form>
+        {% endcomment %}
+
+        <!-- SECTION :      four form : form fields      -->
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <!---->
+
+            {{ four_form.as_p }}
+
+            <input type="submit" value="Submit" />
+        </form>
+
+        <!-- SECTION :      fetch students data      -->
+        {% comment %}
         <table>
             <thead>
                 <th>ID</th>
@@ -33,5 +157,6 @@
                 {% endfor %}
             </tbody>
         </table>
+        {% endcomment %}
     </body>
 </html>

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
 from first.models import Student
-from first.forms import FirstForm, SecondForm, ThirdForm, FourForm, FiveForm
+from first.forms import FirstForm, SecondForm, ThirdForm, FourForm, FiveForm, SixForm, SevenForm, NineForm
 
 
 def first(request):
@@ -33,21 +33,54 @@ def first(request):
     # four_form = FourForm()
     
     
-    if request.method == "POST":
-        five_form = FiveForm(request.POST)
+    #!      five form
+    # if request.method == "POST":
+    #     five_form = FiveForm(request.POST)
         
-        if five_form.is_valid():
-            # print(five_form.cleaned_data)
-            print(five_form.cleaned_data["name"])
-            print(five_form.cleaned_data["email"])
-            print(five_form.cleaned_data["password"])
+    #     if five_form.is_valid():
+    #         # print(five_form.cleaned_data)
+    #         print(five_form.cleaned_data["name"])
+    #         print(five_form.cleaned_data["email"])
+    #         print(five_form.cleaned_data["password"])
             
-            return render(request=request, template_name="first/success.html")
+    #         return render(request=request, template_name="first/success.html")
             
-            # return HttpResponseRedirect("/success/")
+    #         # return HttpResponseRedirect("/success/")
+    # else:
+    #     five_form = FiveForm()
+    #     print("GET requets")
+    
+    
+    #!      six forms
+    # if request.method == "POST":
+    #     six_form = SixForm(request.POST)
+        
+    #     if six_form.is_valid():
+    #         print(six_form.cleaned_data)
+    # else:
+    #     six_form = SixForm()
+    
+    #!      seven form
+    # if request.method == "POST":
+    #     form = SevenForm(request.POST)
+        
+    #     if form.is_valid():
+    #         print(form.cleaned_data)
+    # else:
+    #     form =  SevenForm()
+    
+    
+    
+    #!      nine form
+    if request.method == "POST":
+        form = NineForm(request.POST)
+        
+        if form.is_valid():
+            print(form.cleaned_data)
     else:
-        five_form = FiveForm()
-        print("GET requets")
+        form = NineForm()
+    
+    
     
     context = {
         # "students": students,
@@ -55,7 +88,9 @@ def first(request):
         # "second_form": second_form,
         # "third_form": third_form,
         # "four_form": four_form,
-        "five_form": five_form
+        # "five_form": five_form,
+        # "six_form": six_form,
+        "form": form
     }
     
     

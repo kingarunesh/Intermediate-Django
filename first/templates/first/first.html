@@ -18,6 +18,10 @@
             .message {
                 background-color: yellow;
             }
+
+            .errorlist {
+                color: red;
+            }
         </style>
     </head>
     <body>
@@ -136,12 +140,39 @@
 
         <!-- SECTION :      five form      -->
 
+        {% comment %}
         <form action="" method="POST" novalidate>
             {% csrf_token %}
 
             <!---->
 
             {{ five_form }}
+
+            <input type="submit" value="Submit" />
+        </form>
+        {% endcomment %}
+
+        <!-- SECTION :      six form      -->
+
+        {% comment %}
+        <form method="POST" novalidate>
+            {% csrf_token %}
+
+            <!---->
+
+            {{ six_form }}
+
+            <input type="submit" value="Submit" />
+        </form>
+        {% endcomment %}
+
+        <!-- SECTION :      forms      -->
+
+        <form action="" method="POST" novalidate>
+            {% csrf_token %}
+
+            <!---->
+            {{ form }}
 
             <input type="submit" value="Submit" />
         </form>

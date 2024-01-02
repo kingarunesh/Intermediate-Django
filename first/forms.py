@@ -116,3 +116,9 @@ class NineForm(forms.Form):
 
         if password != confirm_password:
             raise forms.ValidationError("Password and Confirm-Password is equal.")
+
+
+class TenForm(forms.Form):
+    name = forms.CharField(error_messages={"required": "Please Enter name."})
+    email = forms.EmailField(error_messages={"required": "Please Enter valid Email"}, min_length=10, max_length=50)
+    password = forms.CharField(widget=forms.PasswordInput, error_messages={"required": "Please Enter Correct Password"})

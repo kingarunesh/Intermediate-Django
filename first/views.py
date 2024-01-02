@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
 from first.models import Student
-from first.forms import FirstForm, SecondForm, ThirdForm, FourForm, FiveForm, SixForm, SevenForm, NineForm
+from first.forms import FirstForm, SecondForm, ThirdForm, FourForm, FiveForm, SixForm, SevenForm, NineForm, TenForm
 
 
 def first(request):
@@ -72,13 +72,23 @@ def first(request):
     
     
     #!      nine form
+    # if request.method == "POST":
+    #     form = NineForm(request.POST)
+        
+    #     if form.is_valid():
+    #         print(form.cleaned_data)
+    # else:
+    #     form = NineForm()
+    
+    
+    #!      ten form
     if request.method == "POST":
-        form = NineForm(request.POST)
+        form = TenForm(request.POST)
         
         if form.is_valid():
             print(form.cleaned_data)
     else:
-        form = NineForm()
+        form = TenForm()
     
     
     

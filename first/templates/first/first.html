@@ -10,17 +10,12 @@
                 font-family: sans-serif;
             }
 
-            .helptext {
-                color: red;
-                font-weight: bold;
-            }
-
-            .message {
-                background-color: yellow;
-            }
-
             .errorlist {
                 color: red;
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                font-size: 0.8rem;
             }
         </style>
     </head>
@@ -172,7 +167,24 @@
             {% csrf_token %}
 
             <!---->
-            {{ form }}
+            {{ form.non_field_errors }}
+            <!---->
+            {% for field in form %}
+            <!---->
+            <div>
+                <!---->
+                {{ field.label_tag }} {{ field }}
+                <!---->
+                {% comment %} <span class="errorlist">{{ field.errors|striptags }}</span> {% endcomment %}
+
+                <!---->
+                {% for error in field.errors %}
+                <span class="errorlist">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <!---->
+            {% endfor %}
+            <!---->
 
             <input type="submit" value="Submit" />
         </form>

@@ -28,3 +28,10 @@ class FourForm(forms.Form):
     key = forms.CharField(widget=forms.HiddenInput)
     message = forms.CharField(widget=forms.Textarea(attrs={"cols": 50, "rows": 4, "class": "message", "id": "message"}))
     photo = forms.CharField(widget=forms.FileInput)
+
+
+
+class FiveForm(forms.Form):
+    name = forms.CharField()
+    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput)

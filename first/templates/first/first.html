@@ -122,12 +122,26 @@
 
         <!-- SECTION :      four form : form fields      -->
 
+        {% comment %}
         <form action="" method="POST">
             {% csrf_token %}
 
             <!---->
 
             {{ four_form.as_p }}
+
+            <input type="submit" value="Submit" />
+        </form>
+        {% endcomment %}
+
+        <!-- SECTION :      five form      -->
+
+        <form action="" method="POST" novalidate>
+            {% csrf_token %}
+
+            <!---->
+
+            {{ five_form }}
 
             <input type="submit" value="Submit" />
         </form>

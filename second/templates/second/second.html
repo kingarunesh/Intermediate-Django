@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Second</title>
+
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+
+            table,
+            tr,
+            th,
+            td {
+                border: 1px solid #999;
+                border-collapse: collapse;
+                padding: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <!---->
+
+            {{ form }}
+
+            <!---->
+
+            <input type="submit" value="Submit" />
+        </form>
+
+        <hr />
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th>PASSWORD</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for entry in entries %}
+                <tr>
+                    <td>{{ entry.id }}</td>
+                    <td>{{ entry.name }}</td>
+                    <td>{{ entry.email }}</td>
+                    <td>{{ entry.password }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

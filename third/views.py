@@ -31,3 +31,32 @@ def third_view(request):
         form = FirstForm()
     
     return render(request=request, template_name="third/third.html", context={"form": form})
+
+
+
+def hello(request, first_id, second_id, my_slug, check, year):
+    
+    print(first_id)
+    print(type(first_id))
+    
+    print()
+    
+    print(second_id)
+    print(type(second_id))
+    
+    print()
+    
+    print(my_slug)
+    print(type(my_slug))
+    
+    print()
+    
+    #!      this is not related URL
+    print(check)
+    
+    print()
+    
+    print(year)
+    print(type(year))
+        
+    return render(request=request, template_name="third/hello.html")

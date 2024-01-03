@@ -1,6 +1,6 @@
 from django import forms
 
-from third.models import FirstModel
+from third.models import FirstModel, SecondModel, User
 
 
 class FirstForm(forms.ModelForm):
@@ -36,3 +36,26 @@ class FirstForm(forms.ModelForm):
             "password": forms.PasswordInput,
             "name": forms.TextInput(attrs={"class": "name_style", "placeholder": "Your Name..."})
         }
+    
+
+
+class SecondForm(forms.ModelForm):
+    class Meta:
+        model = SecondModel
+        # fields = ["name", "email", "password"]
+        # fields = "__all__"
+        exclude = ["name"]
+
+
+
+
+class StudentForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ["s_name", "email", "password"]
+
+
+class TeacherForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ["t_name", "email", "password"]

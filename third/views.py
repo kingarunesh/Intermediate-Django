@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-from third.models import FirstModel
-from third.forms import FirstForm
+from third.models import FirstModel, SecondModel, User
+from third.forms import FirstForm, SecondForm, StudentForm, TeacherForm
 
 
 def third_view(request):
@@ -60,3 +60,36 @@ def hello(request, first_id, second_id, my_slug, check, year):
     print(type(year))
         
     return render(request=request, template_name="third/hello.html")
+
+
+
+def second_view(request):
+    
+    form = SecondForm()
+    
+    return render(request=request, template_name="third/second.html", context={"form": form})
+
+
+
+def student_view(request):
+    if request.method == "POST":
+        form = StudentForm(request.POST)
+        
+        if form.is_valid():
+            form.save()
+    
+    form = StudentForm()
+    
+    return render(request=request, template_name="third/student.html", context={"form": form})
+
+
+def teacher_view(request):
+    if request.method == "POST":
+        form = TeacherForm(request.POST)
+        
+        if form.is_valid():
+            form.save()
+    
+    form = TeacherForm()
+    
+    return render(request=request, template_name="third/teacher.html", context={"form": form})
